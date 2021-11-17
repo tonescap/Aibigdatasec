@@ -6,5 +6,5 @@ Deep Malicious Powershell Classifier &amp; Deobfuscator
 ### Classifier
 
 ```
-application.py <filename>
+application.py -f <filename> -c <checkpoint>
 ```
