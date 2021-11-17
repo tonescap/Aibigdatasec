@@ -7,4 +7,5 @@ Deep Malicious Powershell Classifier &amp; Deobfuscator
 
 ```
 application.py -f <filename> -c <checkpoint>
+# use Test.pt for checkpoint
 ```
