@@ -171,11 +171,11 @@ def b64_deob_gzip(data : bytes):
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser(description="PowerShell Deobfusecator")
 
-    argparser.add_argument('--dir_path',           type=str, default="./test_ps1", help='malicious powershell directory path')
-    argparser.add_argument('--decode_dir_path',    type=str, default="./tmp",      help='decoded powershell directory path (will be decoded on this folder)')
-    argparser.add_argument('--logfile',            type=str, default="test.log",   help='logging file name (default : test.log)')
-    argparser.add_argument('--PASS',               type=bool, default=True,        help='pass the exist files or not')
-    argparser.add_argument('--debug',              type=bool, default=False,       help='debug message')
+    argparser.add_argument('--dir_path',           type=str,                        help='malicious powershell directory path')
+    argparser.add_argument('--decode_dir_path',    type=str,                        help='decoded powershell directory path (will be decoded on this folder)')
+    argparser.add_argument('--logfile',            type=str, default="test.log",    help='logging file name (default : test.log)')
+    argparser.add_argument('--PASS',               type=bool, default=True,         help='pass the exist files or not')
+    argparser.add_argument('--debug',              type=bool, default=False,        help='debug message')
 
     args = argparser.parse_args()
 
