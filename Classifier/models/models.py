@@ -29,6 +29,9 @@ class TokenCNN(nn.Module):
         if embeddings_pretrained is not None:
             self.embedding = nn.Embedding.from_pretrained(embeddings_pretrained)
 #             self.embedding.weight.requires_grad=False
+        else:
+            self.embedding = nn.Embedding(5396, 32)
+
         self.CNN = nn.Sequential(
             nn.Conv1d(32, 128, 3),
             nn.ReLU(),

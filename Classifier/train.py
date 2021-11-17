@@ -3,8 +3,8 @@ import torch
 from torch import optim
 from torch import nn
 from omegaconf import OmegaConf
-from models.models import CharCNN
-from datasets.datasets import PowershellCharDataset
+from models.models import CharCNN, TokenCNN
+from data_loader.datasets import PowershellCharDataset
 import pickle
 import time
 from torch.utils.tensorboard import SummaryWriter
@@ -69,18 +69,23 @@ def train(model, criterion, optimizer, writer, epochs, device, train_loader, val
 
 def main(cfg):
     run_name = f'{cfg.model.name}-{cfg.train.lr}-{time.time()}'
+    model_dict = {'CharCNN': CharCNN,
+                  'TokenCNN': TokenCNN}
 
     with open(cfg.data.path, 'rb') as handle:
         datas = pickle.load(handle)
 
-    train_dataset = PowershellCharDataset(torch.Tensor(datas['char_data']), torch.Tensor(datas['labels']))
+    with open(cfg.w2v.path, 'rb') as handle:
+        w2v = pickle.load(handle)
+
+    train_dataset = PowershellCharDataset(torch.LongTensor(datas['token_data']), torch.Tensor(datas['labels']))
     train_size = int(0.8 * len(train_dataset))
     test_size = len(train_dataset) - train_size
     train_dataset, val_dataset = torch.utils.data.random_split(train_dataset, [train_size, test_size])
     train_loader = DataLoader(train_dataset, batch_size = 128, shuffle = True)
     val_loader = DataLoader(val_dataset, batch_size = 128, shuffle = True)
 
-    model = CharCNN().to(cfg.train.device)
+    model = TokenCNN(torch.Tensor(w2v.wv.vectors)).to(cfg.train.device)
     bcell = nn.BCEWithLogitsLoss()
     optimizer = optim.Adam(model.parameters(), lr = cfg.train.lr)
     writer = SummaryWriter(os.path.join(cfg.output.log.dir, run_name))

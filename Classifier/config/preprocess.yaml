@@ -1,0 +1,10 @@
+csv_path: './csvs/train_decoded.csv'
+data_dir: './data'
+in_len:
+char: 
+  in_len: 1024
+token: 
+  in_len: 2000
+  img_dir: './imgs'
+  w2v_dir: './w2vs'
+  w2v_epochs: 10

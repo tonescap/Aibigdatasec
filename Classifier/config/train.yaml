@@ -1,0 +1,17 @@
+model:
+  name: 'TokenCNN'
+data:
+  path: "./data_processed/token-train_decoded-2000.pkl"
+w2v:
+  path: "./w2vs/w2v-train_decoded-10.pkl"
+train:
+  batch_size: 128
+  lr: 1e-5
+  device: 'cpu'
+  epochs: 1
+output:
+  model:
+    dir: './checkpoints'
+  log:
+    dir: './runs'
+  print: "yes"
