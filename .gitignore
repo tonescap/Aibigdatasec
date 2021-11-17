@@ -7,15 +7,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-# chekcpoints/
-# csvs/
-# data/
-# data_p/
-# datasets/
-# imgs/
-# models/
-# runs/
-# w2vs/
 .Python
 build/
 develop-eggs/
@@ -137,4 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# ;;
 .DS_Store
