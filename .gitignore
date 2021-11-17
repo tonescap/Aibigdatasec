@@ -1,3 +1,16 @@
+# for deobfuscator
+tmp
+tmp.ps1
+test.log
+test.py
+test_ps1
+phase0_v2
+decoded*
+__pycache__
+label.csv
+
+# for classifier
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
