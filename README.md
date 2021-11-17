@@ -6,6 +6,8 @@ Deep Malicious Powershell Classifier &amp; Deobfuscator
 ### Classifier
 
 ```
-application.py -f <filename> -c <checkpoint>
+application.py -i <input_dir> -c <checkpoint> -o <output_path>
 # use Test.pt for checkpoint
+;;
+application.py -i scripts -c Test.pt -o output.txt
 ```
