@@ -21,19 +21,20 @@ def normalize(document):
     return ('').join(document)
 
 def main(folder_path, checkpoint, output):
-    documents = []
+    documents = {'sentence': [], 'filename' : []}
     for filename in os.listdir(folder_path):
         with open(os.path.join(folder_path, filename),mode='r') as f:
             document = f.read()
         document = normalize(document)
         sentence = re.sub("[^A-Za-z\*\$\-]+", ' ', document).lower().split()
-        documents.append(sentence)
+        documents['sentence'].append(sentence)
+        documents['filename'].append(filename)
 
     with open('Temp.pkl', 'rb') as handle:
         datas = pickle.load(handle)
 
-    n = torch.zeros([len(documents), 2000], dtype = torch.int64)
-    for idx, sentence in enumerate(documents):
+    n = torch.zeros([len(documents['sentence']), 2000], dtype = torch.int64)
+    for idx, sentence in enumerate(documents['sentence']):
         onehot = [datas[word] for word in sentence if word in datas][:2000]
         n[idx, :len(onehot)] = torch.LongTensor(onehot)
 
@@ -48,9 +49,9 @@ def main(folder_path, checkpoint, output):
     for i in range(n.shape[0]):
         out = model(n[i].unsqueeze(0))
         if out>=0:
-            f.write('Malicious\n')
+            f.write(documents['filename'][i] + ',Malicious\n')
         else:
-            f.write('Benign\n')
+            f.write(documents['filename'][i] + ',Benign\n')
     f.close()
 
 if __name__ == '__main__':
